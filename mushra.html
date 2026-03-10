@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MUSHRA Listening Test Template</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+    font-weight: normal;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background: #fafafa;
+    color: #222;
+}
+
+#Wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    max-width: calc(100vw - 32px);
+}
+
+.commonBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #333;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.listen-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.listen-table td {
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+.listen-table tr:last-child td {
+    border-bottom: none;
+}
+
+.label-col {
+    width: 140px;
+    white-space: nowrap;
+}
+
+.audio-col {
+    width: 260px;
+}
+
+.score-col {
+    width: auto;
+}
+
+audio {
+    width: 220px;
+}
+
+.slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 500px;
+    max-width: 500px;
+    height: 8px;
+    border-radius: 999px;
+    background: #3071a9;
+    outline: none;
+    flex: 0 0 500px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 54px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin-top: -23px;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 54px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.score-box {
+    border: 2px solid #ccc;
+    width: 60px;
+    height: 42px;
+    text-align: center;
+    font-size: 16pt;
+    line-height: 42px;
+}
+
+.scale-wrap {
+    position: relative;
+    width: 500px;
+    height: 56px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.scale-row {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.scale-row.num {
+    top: 0;
+    font-size: 10pt;
+}
+
+.scale-row.lab {
+    top: 20px;
+    font-size: 9.5pt;
+    line-height: 1.05;
+}
+
+.scale-tick {
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.scale-row.num .scale-tick {
+    white-space: nowrap;
+}
+
+.scale-row.lab .scale-tick {
+    white-space: nowrap;
+}
+
+.scale-tick.left {
+    left: 0;
+    transform: translateX(0);
+    text-align: left;
+}
+
+.scale-tick.mid20 { left: 20%; }
+.scale-tick.mid40 { left: 40%; }
+.scale-tick.mid60 { left: 60%; }
+.scale-tick.mid80 { left: 80%; }
+
+.scale-tick.right {
+    left: 100%;
+    transform: translateX(-100%);
+    text-align: right;
+    white-space: normal !important;
+}
+
+.notice {
+    color: #b30000;
+    font-weight: bold;
+}
+
+ul {
+    margin-top: 8px;
+}
+
+textarea {
+    font-family: inherit;
+    font-size: 11pt;
+}
+
+.helper {
+    color: #555;
+    font-size: 11pt;
+}
+</style>
+</head>
+<body>
+<div id="Wrapper">
+
+<div class="commonBox" id="TestIntroduction">
+    <h1 style="text-align:center;">Evaluation of Synthesized Speech (Quality)</h1>
+
+    <div style="text-align:left; line-height:1.6;">
+        The purpose of this study is to evaluate the perceptual quality and naturalness of synthesized speech.
+        In each test screen, you will see <b>one open reference</b> and <b>eight test items</b>.
+        The reference is provided only for comparison and <b>should not be scored</b>.
+        Please listen carefully and rate the quality of <b>every test item</b> on a scale from 0 to 100,
+        where 0 means <b>extremely poor</b> and 100 means <b>identical in quality to the reference</b>.
+    </div>
+
+    <div style="text-align:left; line-height:1.6; margin-top:12px;">
+        Please judge only the <b>audio quality / naturalness</b> of the speech.
+        Do not judge the grammar or the sentence content itself.
+        Some test items may sound very similar to the reference, while some may be clearly degraded.
+        <b>Multiple items are allowed to receive the same score</b>, including 100 if you believe they are as good as the reference.
+    </div>
+
+    <div style="text-align:left; margin-top:14px;">
+        The overall test will take about 40 minutes. Please rate every item carefully.
+        <ul>
+            <li><span class="notice">Please use headphones.</span></li>
+            <li><span class="notice">Please use a modern browser such as Chrome, Edge, or Firefox.</span></li>
+            <li><span class="notice">Do not skip any test item. Every slider should be assigned a score.</span></li>
+            <li><span class="notice">The scale is continuous from 0 to 100. Any integer value can be used.</span></li>
+            <li><span class="notice">If you have already completed this task very recently, please do not take it again.</span></li>
+        </ul>
+    </div>
+
+    <p><b>Attention check:</b> you will hear one audio clip below. Please type exactly what you hear.</p>
+    <p><audio controls preload="none" src="https://aiyang8067.github.io/write.wav"></audio></p>
+    <p><b>Write what you heard:</b> <textarea cols="50" name="content" rows="1"></textarea></p>
+</div>
+
+<div class="commonBox" id="TestContainer"></div>
+
+<div class="commonBox" id="CusInf">
+    <p>How did you listen to these files?
+        <input name="headspeak" type="radio" value="Headphones" /> Headphones
+        <input name="headspeak" type="radio" value="Speakers" /> Speakers
+    </p>
+
+    <p>Are you a native speaker of
+        <input name="language" type="radio" value="British" /> British English,
+        <input name="language" type="radio" value="American" /> American English,
+        or a <input name="language" type="radio" value="none" /> non-native speaker of English?
+    </p>
+
+    <p>Please provide any comments you may have below. We appreciate your input.</p>
+    <p><textarea cols="40" name="comment" rows="3"></textarea></p>
+</div>
+
+</div>
+
+<script>
+const tests = [
+    { ref: "${link1}",   items: ["${link2}",   "${link3}",   "${link4}",   "${link5}",   "${link6}",   "${link7}",   "${link8}",   "${link9}"] },
+    { ref: "${link11}",  items: ["${link12}",  "${link13}",  "${link14}",  "${link15}",  "${link16}",  "${link17}",  "${link18}",  "${link19}"] },
+    { ref: "${link21}",  items: ["${link22}",  "${link23}",  "${link24}",  "${link25}",  "${link26}",  "${link27}",  "${link28}",  "${link29}"] },
+    { ref: "${link31}",  items: ["${link32}",  "${link33}",  "${link34}",  "${link35}",  "${link36}",  "${link37}",  "${link38}",  "${link39}"] },
+    { ref: "${link41}",  items: ["${link42}",  "${link43}",  "${link44}",  "${link45}",  "${link46}",  "${link47}",  "${link48}",  "${link49}"] },
+    { ref: "${link51}",  items: ["${link52}",  "${link53}",  "${link54}",  "${link55}",  "${link56}",  "${link57}",  "${link58}",  "${link59}"] },
+    { ref: "${link61}",  items: ["${link62}",  "${link63}",  "${link64}",  "${link65}",  "${link66}",  "${link67}",  "${link68}",  "${link69}"] },
+    { ref: "${link71}",  items: ["${link72}",  "${link73}",  "${link74}",  "${link75}",  "${link76}",  "${link77}",  "${link78}",  "${link79}"] },
+    { ref: "${link81}",  items: ["${link82}",  "${link83}",  "${link84}",  "${link85}",  "${link86}",  "${link87}",  "${link88}",  "${link89}"] },
+    { ref: "${link91}",  items: ["${link92}",  "${link93}",  "${link94}",  "${link95}",  "${link96}",  "${link97}",  "${link98}",  "${link99}"] },
+    { ref: "${link101}", items: ["${link102}", "${link103}", "${link104}", "${link105}", "${link106}", "${link107}", "${link108}", "${link109}"] },
+    { ref: "${link111}", items: ["${link112}", "${link113}", "${link114}", "${link115}", "${link116}", "${link117}", "${link118}", "${link119}"] },
+    { ref: "${link121}", items: ["${link122}", "${link123}", "${link124}", "${link125}", "${link126}", "${link127}", "${link128}", "${link129}"] },
+    { ref: "${link131}", items: ["${link132}", "${link133}", "${link134}", "${link135}", "${link136}", "${link137}", "${link138}", "${link139}"] },
+    { ref: "${link141}", items: ["${link142}", "${link143}", "${link144}", "${link145}", "${link146}", "${link147}", "${link148}", "${link149}"] },
+    { ref: "${link151}", items: ["${link152}", "${link153}", "${link154}", "${link155}", "${link156}", "${link157}", "${link158}", "${link159}"] },
+    { ref: "${link161}", items: ["${link162}", "${link163}", "${link164}", "${link165}", "${link166}", "${link167}", "${link168}", "${link169}"] },
+    { ref: "${link171}", items: ["${link172}", "${link173}", "${link174}", "${link175}", "${link176}", "${link177}", "${link178}", "${link179}"] },
+    { ref: "${link181}", items: ["${link182}", "${link183}", "${link184}", "${link185}", "${link186}", "${link187}", "${link188}", "${link189}"] },
+    { ref: "${link191}", items: ["${link192}", "${link193}", "${link194}", "${link195}", "${link196}", "${link197}", "${link198}", "${link199}"] }
+];
+
+function createScoredRow(audioSrc, testIndex, itemIndex) {
+    const globalId = `t${testIndex + 1}_i${itemIndex + 1}`;
+    return `
+        <tr>
+            <td class="label-col">Test Item ${itemIndex + 1}</td>
+            <td class="audio-col"><audio controls preload="none" src="${audioSrc}"></audio></td>
+            <td class="score-col">
+                <div class="slider-wrap">
+                    <input id="range_${globalId}" max="100" min="0" step="1" type="range" value="0"
+                           oninput="document.getElementById('result_${globalId}').value = this.value;" />
+                    <input id="result_${globalId}" class="score-box" name="${audioSrc}" type="text" value="0"
+                           oninput="syncSlider('${globalId}', this.value)" />
+                </div>
+
+                <div class="scale-wrap">
+                    <div class="scale-row num">
+                        <span class="scale-tick left">0</span>
+                        <span class="scale-tick mid20">20</span>
+                        <span class="scale-tick mid40">40</span>
+                        <span class="scale-tick mid60">60</span>
+                        <span class="scale-tick mid80">80</span>
+                        <span class="scale-tick right">100</span>
+                    </div>
+                    <div class="scale-row lab">
+                        <span class="scale-tick left">Bad</span>
+                        <span class="scale-tick mid20">Poor</span>
+                        <span class="scale-tick mid40">Fair</span>
+                        <span class="scale-tick mid60">Good</span>
+                        <span class="scale-tick mid80">Very good</span>
+                        <span class="scale-tick right">Reference<br>level</span>
+                    </div>
+                </div>
+            </td>
+        </tr>`;
+}
+
+function syncSlider(globalId, value) {
+    const slider = document.getElementById(`range_${globalId}`);
+    let v = parseInt(value, 10);
+    if (Number.isNaN(v)) return;
+    v = Math.max(0, Math.min(100, v));
+    slider.value = v;
+}
+
+function createTestBlock(test, index) {
+    const rows = test.items.map((src, itemIndex) => createScoredRow(src, index, itemIndex)).join('');
+    return `
+        <h4 style="text-align:center; margin-top:${index === 0 ? 0 : 28}px;">Listen Test ${index + 1}</h4>
+        <p class="helper" style="text-align:center; margin-top:-4px;">
+            Use the open reference for comparison, then score all eight test items below.
+        </p>
+        <table class="listen-table" align="center">
+            <tbody>
+                <tr>
+                    <td class="label-col"><b>Reference</b></td>
+                    <td class="audio-col"><audio controls preload="none" src="${test.ref}"></audio></td>
+                    <td class="score-col"><span class="helper">Open reference only - no score needed.</span></td>
+                </tr>
+                ${rows}
+            </tbody>
+        </table>`;
+}
+
+document.getElementById('TestContainer').innerHTML = tests.map(createTestBlock).join('');
+</script>
+</body>
+</html>
